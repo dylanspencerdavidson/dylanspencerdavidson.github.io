@@ -148,6 +148,20 @@ text-shadow:
   }
 }
 
+/* Tighter paragraph on section 5 so content + footer fit in one viewport */
+#page5 p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+@media (max-width: 600px) {
+  #page5 p {
+    font-size: 12px;
+    line-height: 1.45;
+    margin-bottom: 12px;
+  }
+}
+
 @keyframes float{
 0%{transform:translate(-50%,0);}
 50%{transform:translate(-50%,6px);}
