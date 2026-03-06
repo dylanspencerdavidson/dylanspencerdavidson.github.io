@@ -181,10 +181,7 @@ stroke-linecap:round;
 
 stroke-dasharray:700 1300;
 
-filter:
-drop-shadow(0 0 6px white)
-drop-shadow(0 0 14px rgba(255,255,255,.6));
-
+/* Glow via SVG filter (url(#walkline-glow)) for iOS Safari; CSS drop-shadow unreliable on SVG there */
 animation:swoosh 6s linear infinite;
 }
 
@@ -293,11 +290,25 @@ animation-delay:.545s;
 <img src="backgroundf.png">
 
 <svg class="overlay" viewBox="0 0 2311 566">
-
+<defs>
+<filter id="walkline-glow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+<feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1"/>
+<feFlood flood-color="white" flood-opacity=".9" result="flood1"/>
+<feComposite in="flood1" in2="blur1" operator="in" result="glow1"/>
+<feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
+<feFlood flood-color="white" flood-opacity=".6" result="flood2"/>
+<feComposite in="flood2" in2="blur2" operator="in" result="glow2"/>
+<feMerge>
+<feMergeNode in="glow2"/>
+<feMergeNode in="glow1"/>
+<feMergeNode in="SourceGraphic"/>
+</feMerge>
+</filter>
+</defs>
 <g transform="matrix(1,0,0,1,-90.666667,-1581.080081)">
 <g transform="matrix(2.216257,0,0,2.216257,-2979.470484,-941.85791)">
 
-<path class="walkline"
+<path class="walkline" filter="url(#walkline-glow)"
 d="M2424.72,1158L2393,1158L2393,1242L1542,1242L1542,1255L2393,1255L2393,1330L2424.72,1330"/>
 
 </g>
