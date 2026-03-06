@@ -102,6 +102,35 @@ text-shadow:
   }
 }
 
+/* back-to-top (section 5 only): same glow/float as arrows, bottom right */
+.back-to-top {
+  position: absolute;
+  bottom: 30px;
+  right: 35px;
+  font-size: 28px;
+  text-decoration: none;
+  color: white;
+  animation: floatVertical 2s infinite, arrowGlow 1.09s infinite;
+}
+.back-to-top:hover {
+  animation: floatVertical 2s infinite;
+  opacity: 1;
+  text-shadow:
+    0 0 10px rgba(255,255,255,.9),
+    0 0 20px rgba(255,255,255,.6),
+    0 0 40px rgba(255,255,255,.4);
+}
+@media (max-width: 600px) {
+  .back-to-top {
+    bottom: max(24px, 5dvh);
+  }
+}
+@keyframes floatVertical {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(0, 6px); }
+  100% { transform: translate(0, 0); }
+}
+
 @keyframes arrowGlow{
 0%{
   opacity:.35;
@@ -394,6 +423,7 @@ Your facial expression should remain neutral—relaxed and not too strong. Durin
 
 
         <div id="footer"><img src="logo_cfcl-bk.png" alt="CFCL" class="footer-logo">© 2026 <a href="https://atmosphericsolutions.cloud/">atmospheric solutions</a> </br> All rights reserved</div>
+        <a class="back-to-top" href="#page1" aria-label="Back to top">↑</a>
     </section>
     
 
@@ -401,7 +431,7 @@ Your facial expression should remain neutral—relaxed and not too strong. Durin
 // iOS Safari workaround: scroll-snap + anchor links cause immediate bounce-back (WebKit bug 300086).
 // Temporarily disable scroll-snap before scrolling, then re-enable after.
 (function() {
-  document.querySelectorAll('a.next[href^="#"]').forEach(function(link) {
+  document.querySelectorAll('a.next[href^="#"], a.back-to-top').forEach(function(link) {
     link.addEventListener('click', function(e) {
       var targetId = this.getAttribute('href');
       if (targetId === '#' || !targetId) return;
