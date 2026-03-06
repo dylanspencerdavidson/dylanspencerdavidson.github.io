@@ -31,10 +31,11 @@ a:hover{
     text-decoration: none;
 }
 
-/* full screen pages */
+/* full screen pages - use dvh on supported browsers so mobile browser UI doesn't cut off content */
 
 .section{
 height:100vh;
+height:100dvh;
 scroll-snap-align:start;
 display:flex;
 flex-direction:column;
@@ -91,6 +92,14 @@ text-shadow:
   0 0 10px rgba(255,255,255,.9),
   0 0 20px rgba(255,255,255,.6),
   0 0 40px rgba(255,255,255,.4);
+}
+
+/* keep arrow visible on Android when browser bar is shown - position higher on small/touch screens */
+@media (max-width: 600px) {
+  .next {
+    bottom: 5vh;
+    bottom: max(24px, 5dvh);
+  }
 }
 
 @keyframes arrowGlow{
@@ -239,6 +248,17 @@ animation:pulse 1.09s infinite;
 animation-delay:.545s;
 }
 
+/* center audio player */
+.audio-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+.audio-wrap audio {
+  width: 100%;
+  max-width: 320px;
+}
+
 </style>
 
 </head>
@@ -320,10 +340,11 @@ Your facial expression should remain neutral—relaxed and not too strong. Durin
 
     <h2>About the music</h2>
     <p>The music is composed by New York–based musician Ben Vida. It is a minimal soundtrack that includes a text being read throughout the runway show. Two vocalists will be on the runway, reading the same text simultaneously. Have a listen to this excerpt before the show so you know what to expect: </p></br>
-    <audio controls>
+    <div class="audio-wrap">
+      <audio controls>
         <source src="cfcl-v3-excerpt.mp3"  type="audio/mp3">
-      </audio> 
-    
+      </audio>
+    </div>
       <a class="next" href="#page5">↓</a>
 
     </section>
