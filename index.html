@@ -1,174 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CFCL Vol. 10 Training Center</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-        
 
-        body {
-            font-family: 'Quicksand', sans-serif;
-            margin: 0;
-            padding: 0;
-            font-size: 18px;
-            background: linear-gradient(90deg, rgba(255,255,239,1) 0%, rgba(200,227,255,1) 100%);
-            text-align: center;
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
-        }
+<style>
 
-        .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24
-            }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .content {
-            text-align: left; /* Align content to the left */
-        }
-
-/*         .menu {
-            margin-top: 20px;
-            font-size: 36px;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: #333;
-            margin-right: 20px;
-        }
-
-        .menu a:hover {
-            color: #555;
-        } */
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 16px;
-            }
-            body .content h2 h3 {
-                text-decoration: none;
-                color: #333;
-                margin-right: 20px;
-                font-size: 9px;
-
-            }
-        }
-
-        h1 {
-            font-size: 3rem;
-        }
-
-        h3 {
-            font-size: 2rem;
-            margin-top: 4rem;
-            
-        }
-
-
-        .site-footer {
-           color: white;
-            text-align: center; /* Align content to the left */
-            padding: 10px 0;
-            margin-top: 3rem;
-        }
-
-        .boujee-text {
-  --bg-size: 400%;
-  --color-one: hsl(15 90% 55%);
-  --color-two: hsl(40 95% 55%);
-  /* font-size: clamp(3rem, 25vmin, 8rem); */
-  background: linear-gradient(
-      90deg,
-      var(--color-one),
-      var(--color-two),
-      var(--color-one)
-    )
-    0 0 / var(--bg-size) 100%;
-  color: transparent;
-  background-clip: text;
+html{
+scroll-behavior:smooth;
+scroll-snap-type:y mandatory;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .boujee-text {
-    animation: move-bg 8s linear infinite;
-  }
-  @keyframes move-bg {
-    to {
-      background-position: var(--bg-size) 0;
-    }
+body{
+margin:0;
+background:#c3cde1;
+font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+color:#525252;
+}
+
+a {
+    color: #525252;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #f4f4f4;
+    text-decoration: none;
+}
+
+/* full screen pages */
+
+.section{
+height:100vh;
+scroll-snap-align:start;
+display:flex;
+flex-direction:column;
+justify-content:center;
+padding: 0px 35px 0px 35px;
+max-width:500px;
+margin:auto;
+position:relative;
+}
+
+h1{
+font-family:Garamond,Baskerville,"Caslon",serif;
+font-weight:400;
+font-size:35px;
+margin-bottom:30px;
+letter-spacing:0.02em;
+text-align:center;
+}
+
+h2{
+font-family:Garamond,Baskerville,"Caslon",serif;
+text-align:center;
+font-size:32px;
+font-weight:400;
+margin-bottom:20px;
+letter-spacing:0.04em;
+}
+
+p{
+font-size:15px;
+line-height:1.7;
+letter-spacing:0.01em;
+margin-bottom:20px;
+
+}
+
+/* arrow button */
+
+.next{
+position:absolute;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+font-size:28px;
+text-decoration:none;
+color:white;
+animation:float 2s infinite, arrowGlow 1.09s infinite;
+}
+
+.next:hover{
+animation:float 2s infinite;
+opacity:1;
+text-shadow:
+  0 0 10px rgba(255,255,255,.9),
+  0 0 20px rgba(255,255,255,.6),
+  0 0 40px rgba(255,255,255,.4);
+}
+
+@keyframes arrowGlow{
+0%{
+  opacity:.35;
+  text-shadow:0 0 0 rgba(255,255,255,0);
+}
+20%{
+  opacity:1;
+  text-shadow:
+    0 0 10px rgba(255,255,255,.9),
+    0 0 20px rgba(255,255,255,.6),
+    0 0 40px rgba(255,255,255,.4);
+}
+100%{
+  opacity:.35;
+  text-shadow:0 0 0 rgba(255,255,255,0);
+}
+}
+
+
+#footer {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 12px;
+  color: #525252;
+  opacity: 0.8;
+}
+
+#footer .footer-logo {
+  display: block;
+  height: 28px;
+  width: auto;
+  margin: 0 auto 8px;
+  opacity: 0.7;
+  mix-blend-mode: darken;
+}
+
+@media (max-width: 600px) {
+  #footer {
+    width: 88vw;
+    max-width: 400px;
   }
 }
 
-        .site-footer p {
-            margin: 0;
-        }
-    </style>
+@keyframes float{
+0%{transform:translate(-50%,0);}
+50%{transform:translate(-50%,6px);}
+100%{transform:translate(-50%,0);}
+}
+
+/* runway map */
+
+.map{
+position:relative;
+margin:30px 0;
+}
+
+.map img{
+width:100%;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+}
+
+.walkline{
+fill:none;
+stroke:white;
+stroke-width:6;
+stroke-linecap:round;
+
+stroke-dasharray:700 1300;
+
+filter:
+drop-shadow(0 0 6px white)
+drop-shadow(0 0 14px rgba(255,255,255,.6));
+
+animation:swoosh 6s linear infinite;
+}
+
+@keyframes swoosh{
+from{stroke-dashoffset:0;}
+to{stroke-dashoffset:-2000;}
+}
+
+/* tempo section */
+
+.tempo{
+display:flex;
+justify-content:center;
+gap:36px;
+margin-top:80px;
+}
+
+.dot{
+width:24px;
+height:24px;
+border-radius:50%;
+background:white;
+opacity:.35;
+}
+
+/* glow pulse */
+
+@keyframes pulse{
+
+0%{
+opacity:.35;
+transform:scale(1);
+box-shadow:0 0 0 rgba(255,255,255,0);
+}
+
+20%{
+opacity:1;
+transform:scale(1.15);
+box-shadow:
+0 0 20px rgba(255,255,255,.9),
+0 0 40px rgba(255,255,255,.6),
+0 0 70px rgba(255,255,255,.4);
+}
+
+100%{
+opacity:.35;
+transform:scale(1);
+box-shadow:0 0 0 rgba(255,255,255,0);
+}
+
+}
+
+/* BPM timing */
+
+.left{
+animation:pulse 1.09s infinite;
+}
+
+.right{
+animation:pulse 1.09s infinite;
+animation-delay:.545s;
+}
+
+</style>
+
 </head>
+
 <body>
 
-<div class="container">
-    <div class="content">
-        <h1 class="boujee-text">Welcome to the Training Center</h1>
-        <h2>Hello dear beautiful human beings! </br></br>This is the Training Center for CFCL Vol. 10</br>at Paris Fashion Week Womenswear Fall/Winter 2025-2026</br></br>
-            We are very happy to be with you today :) </br>
-            Nile & Dylan</br>
-        </h2>
-        <hr>
-        <p></p>
-        <h3>👣 Walking</h3>
-        <img src="walking-path-numbered.jpg" width="100%">
-        <p style="text-align: left;"><b>Important!</b> </br><b>1.</b> The walk is fast, 120 bpm, in time with the music (see below). </br>
-            <b>2.</b> Turn <u>left</u> at the end of the runway, without a stop. </br>
-            <b></b>3.</b> Walk around the entire space, always turning left until you reach the end of the runway again.</br>
-            <b>4.</b> Walk back down the runway and leave the space. </br>
-            <!-- •  Walk independently of the music, so don't let your walk be affected by the tempo and vibe of the music.  -->
-        </br>• During the finale, the walk is slower. Make sure the gap between you and the models in front and behind you stays tight!</p>
-        <img src="walking-speed-120bpm.gif" width="100%">
-        <p style="text-align: center;">Walking speed (120bpm)</p>
-        <h3>❄️ Atmosphere and mood</h3>
-        <p>The show is being presented at IRCAM, a French research institute for avant-garde music and electro-acoustical sound. The atmosphere for the show is technical, as if you're working in a scientific research centre.</p>
-        <h3>🎼 About the music</h3>
-        <p>The music is a spatial composition by sound artist Miyu Hosoi based on recordings of CFCL knitting machines. Have a listen to the music before the show so you know what to expect:</p>
-        <audio controls>
-            <source src="20250302_CFCL_1min_demo.mp3"  type="audio/mp3">
-          </audio> 
-        <h3>🌎 Scenography & architecture</h3>
-        <p>
-            IRCAM's éspace de projection ("Espro") is a very high-tech space, featuring a moveable ceiling and mechanical walls that can be set to different acoustics. The scenography is kept very minimal to give the sound and looks the centre stage.</p>
 
-        <h3>🪡 Collection</h3>
-        <p>
-            CFCL's knitwear is created through the intertwining loops of a single, flexible thread, capturing the
-            essence of the times to create clothing for contemporary life. The Vol. 10 collection takes inspiration
-            from social anthropologist Tim Ingold's book LINES: A Brief History, reflecting on the brand's origins
-            and reimagining the trial-and-error process of creating clothing solely through knitwear as 'lines.'
-            These lines, curving, folding, and gradually expanding, illustrate the trajectory of CFCL's continuous
-            exploration. By reinterpreting the ancient craft of spinning and knitting threads, rooted in human
-            evolution, through the lens of modern technology and sensibilities, CFCL tells the story of 'Knit-ware' — an expression of free, bold lines that shape a new era.</p>
-<!--         <span class="material-symbols-outlined">
-            undo
-            </span> -->
-    </div>
+<!-- PAGE 1 -->
+
+<section class="section" id="page1">
+
+<h1>Welcome to the CFCL training center</h1>
+
+<p>Hello dear beautiful human beings. This page lets you learn basic information on the runway. We are happy to be with you today.</p>
+
+<p>Nile and Dylan</p>
+
+<a class="next" href="#page2">↓</a>
+
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section class="section" id="page2">
+
+<h2>Walking</h2>
+
+<div class="map">
+
+<img src="backgroundf.png">
+
+<svg class="overlay" viewBox="0 0 2311 566">
+
+<g transform="matrix(1,0,0,1,-90.666667,-1581.080081)">
+<g transform="matrix(2.216257,0,0,2.216257,-2979.470484,-941.85791)">
+
+<path class="walkline"
+d="M2424.72,1158L2393,1158L2393,1242L1542,1242L1542,1255L2393,1255L2393,1330L2424.72,1330"/>
+
+</g>
+</g>
+
+</svg>
+
 </div>
 
-<footer class="site-footer">
-    <div class="container">
-        <hr>
-        <img src="img/cfcllogo.png" style="width: 30px; height: auto; align-items: center;">
-        <p>&copy; 2025 Atmospheric Solutions. All rights reserved.</p>
-    </div>
-</footer>
+<p>
+The walking should be very standard. Walk in a straight line, and keep turns light and continuous without stopping. The music is in a 4/4 beat, so you can walk in the same tempo as the music.
+Your facial expression should remain neutral—relaxed and not too strong. During the finale, please make sure the spacing between you and the models in front of and behind you stays tight.
+
+</p>
+
+<a class="next" href="#page3">↓</a>
+
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section class="section" id="page3">
+
+<h2>Speed of walking</h2>
+
+<div class="tempo">
+
+<div class="dot left"></div>
+<div class="dot right"></div>
+
+</div>
+
+<a class="next" href="#page4">↓</a>
+
+</section>
+
+<!-- PAGE 4 -->
+
+<section class="section" id="page4">
+
+    <h2>About the music</h2>
+    <p>The music is composed by New York–based musician Ben Vida. It is a minimal soundtrack that includes a text being read throughout the runway show. Two vocalists will be on the runway, reading the same text simultaneously. Have a listen to this excerpt before the show so you know what to expect: </p></br>
+    <audio controls>
+        <source src="cfcl-v3-excerpt.mp3"  type="audio/mp3">
+      </audio> 
+    
+      <a class="next" href="#page5">↓</a>
+
+    </section>
+
+
+
+    <!-- PAGE 5 -->
+    <section class="section" id="page5">
+
+    <h2>Collection</h2>
+    <p>
+        CFCL continues its creative practice guided by a fundamental question: can fashion contribute to shaping a better society? As a medium that connects society and the individual wearer, clothing functions as an artwork of multiples, allowing the intentions of its maker to spread through the act of wearing. With the VOL.12 Collection, CFCL reconceives the concept of "social sculpture" proposed by Joseph Beuys, marking forty years since his passing. By bringing together social activism and art, Beuys sought to create new forms of society and expanded the definition of art itself. Drawing from his practice, which moves across social impact, creative expression and aesthetic awareness, CFCL layers the conceptual notion of sculpture onto Knit-ware.
+</p>
+
+
+        <div id="footer"><img src="logo_cfcl-bk.png" alt="CFCL" class="footer-logo">© 2026 <a href="https://atmosphericsolutions.cloud/">atmospheric solutions</a> </br> All rights reserved</div>
+    </section>
+    
+
 
 </body>
 </html>

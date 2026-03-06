@@ -1,1 +1,0 @@
-# dylanspencerdavidson.github.io
